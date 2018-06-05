@@ -1,7 +1,8 @@
 #!/bin/bash
 
 mdkir -p /home/ec2-user/sample_app
-cd /home/ec2-user/sample_app
+alias cdcompo="cd /home/ec2-user/sample_app"
+cdcompo
 curl -sS https://getcomposer.org/installer | php
 php composer.phar require aws/aws-sdk-php
 php composer.phar require gilbitron/php-simplecache
