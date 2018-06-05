@@ -21,3 +21,6 @@ files:
    overwrite: yes
  - source: nginx_server/
    destination: /home/ec2-user/nginx_server
+ - source: php_files/www.conf
+   destination: /etc/php-fpm.d/
+   overwrite: yes
