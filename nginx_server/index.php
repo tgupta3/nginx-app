@@ -45,13 +45,7 @@
 		echo "<pre>You have visited $count times</pre>";	
 	 }
 
-        if($_COOKIE) {
-  print_r($_COOKIE);     //print all cookie
-}
-else
-{
-   echo "COOKIE is not set";    
-}
+        
   if (!function_exists('getallheaders')) 
 { 
     function getallheaders() 

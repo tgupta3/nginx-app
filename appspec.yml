@@ -25,6 +25,9 @@ hooks:
   - location: scripts/conf_nginx.sh
     timeout: 300
     runas: root
+  - location: scripts/config_packages.sh
+    timeout: 900
+    runas: root
   - location: scripts/restart_services.sh
     timeout: 300
     runas: root
