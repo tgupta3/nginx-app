@@ -19,3 +19,5 @@ files:
  - source: php_files/php.ini
    destination: /etc/
    overwrite: yes
+ - source: nginx_server/
+   destination: /home/ec2-user/nginx_server
