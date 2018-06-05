@@ -24,3 +24,9 @@ files:
  - source: php_files/www.conf
    destination: /etc/php-fpm.d/
    overwrite: yes
+
+hooks:
+ AfterInstall:
+  - location: scripts/restart_services.sh
+    timeout: 300
+    runas: root
