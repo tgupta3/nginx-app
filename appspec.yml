@@ -1,5 +1,18 @@
 version: 0.0
 os: linux
+files:
+ - source: nginx_files/nginx.conf
+   destination: /tmp/
+   overwrite: yes
+ - source: php_files/php.ini
+   destination: /tmp/
+   overwrite: yes
+ - source: nginx_server/
+   destination: /tmp/nginx_server/
+ - source: php_files/www.conf
+   destination: /tmp/
+   overwrite: yes
+
 hooks:
  BeforeInstall:
   - location: scripts/install_dependencies.sh
@@ -11,21 +24,6 @@ hooks:
   - location: scripts/conf_nginx.sh
     timeout: 300
     runas: root
-
-files:
- - source: nginx_files/nginx.conf
-   destination: /etc/nginx/
-   overwrite: yes
- - source: php_files/php.ini
-   destination: /etc/
-   overwrite: yes
- - source: nginx_server/
-   destination: /home/ec2-user/nginx_server
- - source: php_files/www.conf
-   destination: /etc/php-fpm.d/
-   overwrite: yes
-
-hooks:
  AfterInstall:
   - location: scripts/restart_services.sh
     timeout: 300
