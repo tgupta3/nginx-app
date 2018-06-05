@@ -1,4 +1,4 @@
 #!/bin/bash
 
 yum install -y nginx
-yum install -y php-fpm php-mysql
+yum install -y php php-fpm php-mysql
