@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+hooks:
+ BeforeInstall:
+  - location: scripts/install_dependencies.sh
+    timeout: 300
+    runas: root
+files:
+ - source: nginx_files/nginx.conf
+   destination: /etc/nginx/
+ - source: php_files/php.ini
+   destination: /etc/
+
