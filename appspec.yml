@@ -8,6 +8,7 @@ hooks:
 files:
  - source: nginx_files/nginx.conf
    destination: /etc/nginx/
+   overwrite: yes
  - source: php_files/php.ini
    destination: /etc/
-
+   overwrite: yes
