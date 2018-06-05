@@ -14,7 +14,7 @@ files:
    overwrite: yes
 
 hooks:
- BeforeInstall:
+ AfterInstall:
   - location: scripts/install_dependencies.sh
     timeout: 300
     runas: root
@@ -24,7 +24,7 @@ hooks:
   - location: scripts/conf_nginx.sh
     timeout: 300
     runas: root
- AfterInstall:
+ ApplicationInstall:
   - location: scripts/restart_services.sh
     timeout: 300
     runas: root
