@@ -5,6 +5,13 @@ hooks:
   - location: scripts/install_dependencies.sh
     timeout: 300
     runas: root
+  - location: scripts/conf_app.sh
+    timeout: 300
+    runas: root
+  - location: scripts/conf_nginx.sh
+    timeout: 300
+    runas: root
+
 files:
  - source: nginx_files/nginx.conf
    destination: /etc/nginx/
