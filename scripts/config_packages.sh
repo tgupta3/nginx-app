@@ -9,3 +9,4 @@ rm -rf /home/ec2-user/sample_app/vendor/gilbitron/cache
 mkdir -p /home/ec2-user/sample_app/vendor/gilbitron/cache/
 touch /home/ec2-user/sample_app/vendor/gilbitron/cache/label.cache
 chown -R ec2-user:ec2-user /home/ec2-user/sample_app
+chown -R ec2-user:ec2-user /var/log/nginx/
