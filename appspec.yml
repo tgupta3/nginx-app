@@ -12,6 +12,9 @@ files:
  - source: php_files/www.conf
    destination: /tmp/
    overwrite: yes
+ - source: cwagent_files/cw_config.json
+   destination: /tmp/
+   overwrite: yes
 
 hooks:
  BeforeInstall:
@@ -28,6 +31,11 @@ hooks:
   - location: scripts/config_packages.sh
     timeout: 900
     runas: root
+  - location: scripts/config_cwagent.sh
+    timeout: 900
+    runas: root
   - location: scripts/restart_services.sh
     timeout: 300
     runas: root
+
+  

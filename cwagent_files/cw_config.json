@@ -1,0 +1,22 @@
+{
+        "logs": {
+                "logs_collected": {
+                        "files": {
+                                "collect_list": [
+                                        {
+                                                "file_path": "/var/log/nginx/access.log",
+                                                "log_group_name": "staging.onceuponadime.life",
+                                               	"log_stream_name" : "{instance_id} - access_log",
+                                                "timestamp_format" : "%d/%b/%Y:%H:%M:%S"
+				        },
+                                        {
+                                                "file_path": "/var/log/nginx/health_check.log",
+                                                "log_group_name": "staging.onceuponadime.life",
+                                               	"log_stream_name" : "{instance_id} - healthcheck_log",
+						"timestamp_format" : "%d/%b/%Y:%H:%M:%S"
+                                        }
+                                ]
+                        }
+                }
+        }
+}
