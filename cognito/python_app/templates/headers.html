@@ -1,0 +1,14 @@
+
+<head>
+
+<ul>
+{% for item in headers %}
+  <li>{{item}}</li>
+  {% endfor %}
+</ul>
+<form  action="/logout" method="get">
+<button type="submit">Logout</button><br>
+
+</form>
+
+</head>

@@ -15,6 +15,12 @@ files:
  - source: cwagent_files/cw_config.json
    destination: /tmp/
    overwrite: yes
+ - source: cognito/supervisord.conf
+   destination: /tmp/
+   overwrite: yes
+ - source: cognito/python_app
+   destination: /tmp/
+   overwrite: yes
 
 hooks:
  BeforeInstall:
@@ -34,8 +40,9 @@ hooks:
   - location: scripts/config_cwagent.sh
     timeout: 900
     runas: root
+  - location: scripts/config_supervisor.sh
+    timeout: 900
+    runas: root
   - location: scripts/restart_services.sh
     timeout: 300
     runas: root
-
-  
