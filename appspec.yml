@@ -43,6 +43,9 @@ hooks:
   - location: scripts/config_supervisor.sh
     timeout: 900
     runas: root
+  - location: scripts/config_cognito.sh
+    timeout: 900
+    runas: root
   - location: scripts/restart_services.sh
     timeout: 300
     runas: root
