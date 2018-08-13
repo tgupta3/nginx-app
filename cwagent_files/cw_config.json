@@ -14,6 +14,12 @@
                                                 "log_group_name": "staging.onceuponadime.life",
                                                	"log_stream_name" : "{instance_id} - healthcheck_log",
 						"timestamp_format" : "%d/%b/%Y:%H:%M:%S"
+                                        },
+					{
+                                                "file_path": "/var/log/nginx/error.log",
+                                                "log_group_name": "staging.onceuponadime.life",
+                                               	"log_stream_name" : "{instance_id} - error",
+						"timestamp_format" : "%d/%b/%Y:%H:%M:%S"
                                         }
                                 ]
                         }
