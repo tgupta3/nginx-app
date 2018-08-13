@@ -18,8 +18,8 @@ files:
  - source: cognito/supervisord.conf
    destination: /tmp/
    overwrite: yes
- - source: cognito/python_app
-   destination: /tmp/
+ - source: cognito/python_app/
+   destination: /tmp/python_app/
    overwrite: yes
 
 hooks:
