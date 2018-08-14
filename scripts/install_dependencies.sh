@@ -8,3 +8,5 @@ yum install -y python-pip
 pip install flask
 pip install supervisor
 pip install gunicorn
+pip install requests
+pip install urllib3
