@@ -5,4 +5,4 @@ service nginx start
 service php-fpm stop
 service php-fpm start
 service supervisord stop
-service supervisord start
+/usr/local/bin/supervisord -c /etc/supervisord.conf
