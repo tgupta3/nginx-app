@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+
 wget https://s3.amazonaws.com/amazoncloudwatch-agent/linux/amd64/latest/AmazonCloudWatchAgent.zip
 unzip -o AmazonCloudWatchAgent.zip -d cwagent/
 cd cwagent/ && ./install.sh
