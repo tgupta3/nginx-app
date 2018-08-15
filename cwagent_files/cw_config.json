@@ -20,6 +20,18 @@
                                                 "log_group_name": "staging.onceuponadime.life",
                                                	"log_stream_name" : "{instance_id} - error",
 						"timestamp_format" : "%d/%b/%Y:%H:%M:%S"
+                                        },
+					{
+                                                "file_path": "/var/log/flask.log",
+                                                "log_group_name": "staging.onceuponadime.life",
+                                                "log_stream_name" : "{instance_id} - flask_access_log",
+                                                "timestamp_format" : "%d/%b/%Y:%H:%M:%S"
+                                        },
+         				{
+                                                "file_path": "/var/log/supervisord_err.log",
+                                                "log_group_name": "staging.onceuponadime.life",
+                                                "log_stream_name" : "{instance_id} - supervisor_error_log",
+                                                "timestamp_format" : "%Y-%m-%d %H:%M:%S"
                                         }
                                 ]
                         }
