@@ -4,6 +4,8 @@ from flask import render_template
 from flask import make_response
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
+import psutil
+import time
 import requests
 import logging
 import json, datetime
@@ -32,11 +34,14 @@ def requests_retry_session(
 
 response = requests_retry_session().get('http://169.254.169.254/latest/meta-data/instance-id/')
 instanceid = response.text
+boot_time = psutil.boot_time()
+time_elapsed = time.time() - boot_time
+time_delta = (datetime.datetime.now() - datetime.timedelta(seconds=time_elapsed)).strftime("%Y-%m-%d %H:%M")
 
 @application.route("/")
 def hello():
     headers = request.headers.items()
-    return render_template('headers.html', headers=headers, instanceid=instanceid)
+    return render_template('headers.html', headers=headers, instanceid=instanceid, time_running=time_delta)
 
 @application.route("/logout")
 def logout():
