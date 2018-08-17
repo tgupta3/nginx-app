@@ -4,8 +4,10 @@ set -e
 #yum install -y nginx
 #yum install -y php php-fpm php-mysql
 easy_install pip==9.0.3
+yum install gcc
 yum install -y python-pip
 pip install flask
+pip install psutil
 pip install supervisor
 pip install gunicorn
 pip install -U requests
