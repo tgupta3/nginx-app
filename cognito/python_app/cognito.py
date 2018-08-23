@@ -8,7 +8,7 @@ import psutil
 import time
 import requests
 import logging
-import json, datetime
+import json, datetime, jwt, base64
 application = Flask(__name__)
 
 #datetime.datetime.now()
@@ -32,6 +32,17 @@ def requests_retry_session(
     session.mount('https://', adapter)
     return session
 
+def decode_jwt(jwt_token):
+	decoded_jwt_headers = base64.b64decode((jwt_token.split('.')[0]))
+	decoded_json = json.loads(decoded_jwt_headers)
+	kid = decoded_json['kid']
+	region = "us-east-1"
+	url = 'https://public-keys.auth.elb.' + region + '.amazonaws.com/' + kid
+	req = requests.get(url)
+	pub_key = req.text
+	payload = jwt.decode(jwt_token, pub_key,algorithms=[decoded_json['alg']])
+	return payload
+
 response = requests_retry_session().get('http://169.254.169.254/latest/meta-data/instance-id/')
 instanceid = response.text
 boot_time = psutil.boot_time()
@@ -41,7 +52,20 @@ time_delta = (datetime.datetime.now() - datetime.timedelta(seconds=time_elapsed)
 @application.route("/")
 def hello():
     headers = request.headers.items()
-    return render_template('headers.html', headers=headers, instanceid=instanceid, time_running=time_delta)
+    if('X-Amzn-Oidc-Data' in request.headers):
+	try:
+		decoded_jwt = decode_jwt(request.headers['X-Amzn-Oidc-Data'])
+    		application.logger.info(decoded_jwt)
+	except:
+		decoded_jwt = ''
+    else:
+	decoded_jwt = ''
+        application.logger.info("Hello")
+    return render_template('headers.html', headers=headers, instanceid=instanceid, time_running=time_delta, user_data = decoded_jwt)
+
+@application.route("/health")
+def health_check():
+    return "Hello"
 
 @application.route("/logout")
 def logout():
@@ -57,4 +81,4 @@ if __name__ != '__main__':
     gunicorn_logger = logging.getLogger('gunicorn.error')
     application.logger.handlers = gunicorn_logger.handlers
     application.logger.setLevel(gunicorn_logger.level)
-    #application.logger.info("Hello")
+    application.logger.info("test")

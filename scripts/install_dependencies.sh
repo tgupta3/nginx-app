@@ -12,3 +12,5 @@ pip install supervisor
 pip install gunicorn
 pip install -U requests
 pip install -U urllib3
+pip install -U PyJWT
+pip install -U cryptography
