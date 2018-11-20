@@ -52,3 +52,6 @@ hooks:
   - location: scripts/config_zsh.sh
     timeout: 300
     runas: root
+  - location: scripts/config_zsh_usr.sh
+    timeout: 300
+    runas: ec2-user
