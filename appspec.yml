@@ -21,6 +21,9 @@ files:
  - source: cognito/python_app/
    destination: /tmp/python_app/
    overwrite: yes
+ - source: cwagent_files/collectd.conf
+   destination: /tmp/
+   overwrite: yes
 
 hooks:
  BeforeInstall:

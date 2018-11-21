@@ -14,3 +14,4 @@ pip install -U requests
 pip install -U urllib3
 pip install -U PyJWT
 pip install -U cryptography
+yum install -y collectd

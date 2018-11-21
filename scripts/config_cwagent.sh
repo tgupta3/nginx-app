@@ -4,4 +4,5 @@ wget https://s3.amazonaws.com/amazoncloudwatch-agent/linux/amd64/latest/AmazonCl
 unzip -o AmazonCloudWatchAgent.zip -d cwagent/
 cd cwagent/ && ./install.sh
 mv /tmp/cw_config.json /opt/aws/amazon-cloudwatch-agent/bin/
+mv /tmp/collectd.conf /etc/
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/cw_config.json -s
